@@ -1,0 +1,21 @@
+actor: ScratchTester
+bootstrap: _bootstrap.php
+modules:
+    enabled:
+        - \Helper\Scratch
+        - \Helper\Scratch\Math
+        - \Helper\Scratch\User
+        - Asserts
+        - Db:
+              dsn: 'mysql:host=localhost;dbname=testdb'
+              user: 'root'
+              password: 'root'
+              dump: 'tests/_data/dump.sql'
+        - PhpBrowser:
+              url: http://www.thinkapp.com
+        - REST:
+              url: http://www.thinkapp.com
+              depends: PhpBrowser
+              part: Json
+        - Filesystem
+    step_decorators: ~

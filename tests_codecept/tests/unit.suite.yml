@@ -1,0 +1,26 @@
+# Codeception Test Suite Configuration
+#
+# Suite for unit or integration tests.
+
+actor: UnitTester
+bootstrap: _bootstrap.php
+modules:
+    enabled:
+        - Asserts
+        - \Helper\Unit
+        - \Helper\Unit\Common
+        - \Helper\Unit\ThinkPHP
+        - \Helper\Unit\Test
+        - Db:
+              dsn: 'mysql:host=localhost;dbname=testdb'
+              user: 'root'
+              password: 'root'
+              dump: 'tests/_data/dump.sql'
+        - PhpBrowser:
+              url: http://www.thinkapp.com
+        - REST:
+              url: http://www.thinkapp.com
+              depends: PhpBrowser
+              part: Json
+        - Filesystem
+    step_decorators: ~
