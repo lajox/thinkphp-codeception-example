@@ -1,0 +1,11 @@
+# `firefox` environment config goes here
+modules:
+  config:
+    WebDriver:
+      browser: 'firefox'
+      port: 4444
+      url: 'http://www.thinkapp.com'
+      browserName: 'firefox'
+      capabilities:
+        browserName: 'firefox'
+        platform: ANY

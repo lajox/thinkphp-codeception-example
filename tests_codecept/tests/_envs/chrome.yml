@@ -1,0 +1,15 @@
+# `chrome` environment config goes here
+#         chromeOptions: 'goog:chromeOptions'
+modules:
+  config:
+    WebDriver:
+      browser: 'chrome'
+      url: 'http://www.thinkapp.com'
+      port: 4444 # 9515 with only run by chromedriver,  4444 with run by selenium-server
+      window_size: false # disabled in ChromeDriver
+      capabilities:
+        browserName: 'chrome'
+        platform: ANY
+#        chromeOptions:  # chromeOptions or 'goog:chromeOptions'
+#          args:
+#            - '--disable-web-security'

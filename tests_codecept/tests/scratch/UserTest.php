@@ -45,12 +45,12 @@ class UserTest extends \Codeception\Test\Unit
         $this->tester->seeInDatabase('member', ['username' => 'lajox', 'email like' => '%yeah.net%']);
 
         # 调用模块 PhpBrowser 里的方法
-        $this->getModule('PhpBrowser')->sendAjaxPostRequest('/api/test/demo', ['name' => 'test', 'email' => 'test@163.com']);
-        $this->tester->sendAjaxPostRequest('/api/test/demo', ['name' => 'test', 'email' => 'test@163.com']);
+        $this->getModule('PhpBrowser')->sendAjaxPostRequest('/index/api/demo', ['name' => 'test', 'email' => 'test@163.com']);
+        $this->tester->sendAjaxPostRequest('/index/api/demo', ['name' => 'test', 'email' => 'test@163.com']);
 
         # 调用模块 REST 里的方法
-        $this->getModule('REST')->sendPOST('/api/test/demo', ['name' => 'test', 'email' => 'test@163.com']);
-        $this->tester->sendPOST('/api/test/demo', ['name' => 'test', 'email' => 'test@163.com']);
+        $this->getModule('REST')->sendPOST('/index/api/demo', ['name' => 'test', 'email' => 'test@163.com']);
+        $this->tester->sendPOST('/index/api/demo', ['name' => 'test', 'email' => 'test@163.com']);
 
 
         # 场景测试

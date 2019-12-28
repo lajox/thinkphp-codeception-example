@@ -7,4 +7,20 @@ namespace Helper;
 class Mixture extends \Codeception\Module
 {
 
+    /**
+     * @return \Codeception\Module
+     */
+    public function getPublicModule($name)
+    {
+        return $this->getModule($name);
+    }
+
+    /**
+     * @return \Codeception\Module
+     */
+    public function getPublicModules()
+    {
+        return $this->getModules();
+    }
+
 }

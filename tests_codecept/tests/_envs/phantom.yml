@@ -1,0 +1,7 @@
+# `phantom` environment config goes here
+modules:
+  config:
+    WebDriver:
+      browser: 'phantomjs'
+      port: 4444
+      url: 'http://www.thinkapp.com'

@@ -4,13 +4,16 @@ ThinkPHP With Codeception Unit Tests Example
 
 ThinkPHP5.1基础框架集成Codeception单元测试：
 
- + 支持ThinPHP自带的测试（php think unit指令）
+ + 支持ThinPHP5.1自带的测试: `php think unit`指令
  + 支持PHPUnit单元测试
  + 支持Codeception单元测试（current version 3.1.2）
  + 支持composer进行更新升级框架
 
-
 > ThinkPHP5的运行环境要求PHP5.6以上。
+
+* Github项目地址： [https://github.com/lajox/thinkphp-codeception-example](https://github.com/lajox/thinkphp-codeception-example)
+* bug/建议发送至邮箱：`lajox@19www.com`
+* 联系作者QQ：`517544292`
 
 ## 安装
 
@@ -94,8 +97,8 @@ cd tests_codecept
 codecept run
 codecept run unit --steps --debug
 codecept run api --steps --debug
-codecept run --steps --debug tests\scratch\MockTest.php
-codecept run --steps --debug tests\scratch\MockTest.php:testSomeFeature
+codecept run --steps --debug tests\scratch\UserTest.php
+codecept run --steps --debug tests\scratch\UserTest.php:testSomeFeature
 ~~~
 
 ## 使用Codeception命令创建步骤
@@ -146,9 +149,9 @@ codecept build
 + 创建几个单元测试文件：
 
 ~~~
-codecept generate:test mixture UserTest
-codecept generate:cest mixture UserCest
-codecept generate:cept mixture UserCept
+codecept generate:test mixture MixUserTest
+codecept generate:cest mixture MixUserCest
+codecept generate:cept mixture MixUserCept
 ~~~
 
 > 通常用 `generate:test`, `generate:cest`, `generate:cept` 来区分创建不同类型的单元测试文件
@@ -157,7 +160,7 @@ codecept generate:cept mixture UserCept
 
 ~~~
 codecept run mixture
-codecept run mixture UserTest --steps --debug
+codecept run mixture MixUserTest --steps --debug
 ~~~
 
 #### 高级用法

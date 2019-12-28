@@ -3,16 +3,10 @@ modules:
     enabled:
         - \Helper\Mixture
         - Asserts
-        - Db:
-              dsn: 'mysql:host=localhost;dbname=testdb'
-              user: 'root'
-              password: 'root'
-              dump: 'tests/_data/dump.sql'
-        - PhpBrowser:
-              url: http://www.thinkapp.com
-        - REST:
-              url: http://www.thinkapp.com
-              depends: PhpBrowser
-              part: Json
+        - WebDriver:
+              browser: 'chrome'
+              url: 'http://www.thinkapp.com'
         - Filesystem
     step_decorators: ~
+paths:
+    envs: tests/_envs
