@@ -23,8 +23,6 @@ class NewTest extends TestCase
     {
         $this->assertTrue(true);
         $this->assertEquals(2, 1 + 1);
-
-        $this->assertEquals('user@example.com', \src\Email::fromString('user@example.com'));
     }
 
     public function testThinkFunctions()
