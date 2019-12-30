@@ -1,8 +1,11 @@
 <?php
 # tests/ThinkTest.php 文件
+# cmd console:
+#     php think unit tests/ThinkTest.php
 # 注意： ThinkTest 是继承 \think\testing\TestCase， 不是继承 \PHPUnit\Framework\TestCase
 #        所以， php think unit 能支持 thinkphp 自身测试单元的 visit， see方法， 例如 $this->visit('/index/test/show')->see('show_test');
-#        所有的 PHPUnit 的方法都支持。
+#        所有的 PHPUnit 的方法都支持调用。
+
 
 namespace tests;
 
