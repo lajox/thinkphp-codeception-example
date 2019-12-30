@@ -219,4 +219,4 @@ codecept build
 
 #### 安装WebDriver自动化web浏览器测试工具：
 
-更多资料参阅 [WebDriver.md](WebDriver)
+更多资料参阅 [WebDriver.md](WebDriver.md)
