@@ -1,18 +1,27 @@
 <?php
 /*
+ * 关于capabilities的文档：
+ *     https://github.com/SeleniumHQ/selenium/wiki/DesiredCapabilities
  *
  * 关于WebDriver的文档：
- *    https://github.com/Codeception/Codeception/blob/3.1/docs/modules/WebDriver.md
- *    https://codeception.com/docs/modules/WebDriver#_capabilities
+ *     https://github.com/Codeception/Codeception/blob/3.1/docs/modules/WebDriver.md
+ *     https://codeception.com/docs/modules/WebDriver#_capabilities
  *
  * 查看 chrome chromedriver 的 ChromeOptions:
  *     https://sites.google.com/a/chromium.org/chromedriver/capabilities
  *
  * 查看 firefox geckodriver 的 capabilities:
- * https://developer.mozilla.org/en-US/docs/Web/WebDriver/Capabilities
- * https://developer.mozilla.org/en-US/docs/Web/WebDriver/Capabilities/firefoxOptions
+ *     https://developer.mozilla.org/en-US/docs/Web/WebDriver/Capabilities
+ *     https://developer.mozilla.org/en-US/docs/Web/WebDriver/Capabilities/firefoxOptions
  *
- * 多个env环境参数 来测试不同的环境 参考： https://codeception.com/docs/07-AdvancedUsage
+ * 模块WebDriver的参考资料：
+ *     https://codeception.com/docs/modules/WebDriver
+ *
+ * 多个env环境参数 来测试不同的环境 参考：
+ *     https://codeception.com/docs/07-AdvancedUsage
+ *
+ * xpath文档资料：
+ *     http://www.zvon.org/xxl/XPathTutorial/Output/
  *
  */
 

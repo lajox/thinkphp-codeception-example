@@ -216,3 +216,7 @@ codecept build
 * `generate:stepobject suite filename` - Generates a sample Step object
 * `generate:environment env` - Generates a sample Environment configuration
 * `generate:groupobject group` - Generates a sample Group Extension
+
+#### 安装WebDriver自动化web浏览器测试工具：
+
+更多资料参阅 [WebDriver.md](WebDriver)

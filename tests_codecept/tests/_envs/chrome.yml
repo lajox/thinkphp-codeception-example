@@ -1,5 +1,4 @@
 # `chrome` environment config goes here
-#         chromeOptions: 'goog:chromeOptions'
 modules:
   config:
     WebDriver:

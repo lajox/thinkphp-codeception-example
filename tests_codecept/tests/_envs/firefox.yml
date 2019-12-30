@@ -5,7 +5,6 @@ modules:
       browser: 'firefox'
       port: 4444
       url: 'http://www.thinkapp.com'
-      browserName: 'firefox'
       capabilities:
         browserName: 'firefox'
         platform: ANY
