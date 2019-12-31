@@ -38,6 +38,8 @@ class CreateUserCest
             'msg' => 'string',
             'data' => 'string|array|null',
         ]);
-
+        # debug输出一条信息
+        $response =  $I->grabResponse();
+        $I->debugSection('response', $response);
     }
 }
