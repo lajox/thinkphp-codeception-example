@@ -10,4 +10,6 @@ modules:
     enabled:
         # add a framework module here
         - \Helper\Functional
+        - PhpBrowser:
+              url: '%BASE_URL%'        # BASE_URL : http://www.thinkapp.com 定义在 config/params.php
     step_decorators: ~        

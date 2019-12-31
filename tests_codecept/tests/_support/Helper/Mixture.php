@@ -16,7 +16,7 @@ class Mixture extends \Codeception\Module
     }
 
     /**
-     * @return \Codeception\Module
+     * @return array
      */
     public function getPublicModules()
     {
