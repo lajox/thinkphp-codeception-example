@@ -17,7 +17,7 @@ class CreateUserCest
         # 发送请求api地址： http://www.thinkapp.com/index/api/demo
         # 请求参数： {"name":"test","email":"test@163.com"}
         # 响应结果： {"code":1,"msg":"success","data":[]}
-        $I->haveHttpHeader('accept', 'application/json');
+        // $I->haveHttpHeader('accept', 'application/json');
         // $I->haveHttpHeader('Content-Type', 'application/x-www-form-urlencoded'); // 普通表单形式发送
         $I->haveHttpHeader('content-type', 'application/json'); // 发送JSON形式数据
         $I->sendPOST('/index/api/demo', [

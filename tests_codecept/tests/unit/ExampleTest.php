@@ -22,6 +22,9 @@ class ExampleTest extends \Codeception\Test\Unit
         $this->assertTrue(true);
 
         $this->_testHelperUnit();    # 测试业务代码: tests/_support/Helper/Unit.php
+
+        \Codeception\Module\Asserts::assertTrue(true);       //调用断言模块断言变量
+        \PHPUnit\Framework\Assert::assertTrue(true);         //直接调用PHPUnit断言方法
     }
 
     /**

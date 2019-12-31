@@ -35,9 +35,8 @@ class Common extends \Codeception\Module
     public function seeModulePhpBrowser()
     {
         // 可以查看文档： https://codeception.com/docs/modules/PhpBrowser
-        $this->getModule('PhpBrowser')->haveHttpHeader('accept', 'application/json');
-        // $this->getModule('PhpBrowser')->haveHttpHeader('Content-Type', 'application/x-www-form-urlencoded'); // 普通表单形式发送
-        $this->getModule('PhpBrowser')->haveHttpHeader('content-type', 'application/json'); // 发送JSON形式数据
+        # 注意： 经测试， “PhpBrowser”模块 暂时不支持POST发送JSON格式的数据, 如果要发送JSON数据请用 “REST”模块！！！
+
         // AJAX请求
         //$this->getModule('PhpBrowser')->sendAjaxPostRequest('/index/api/demo', ['name' => 'test', 'email' => 'test@163.com']);
         $this->getModule('PhpBrowser')->sendAjaxRequest('POST', '/index/api/demo', [
@@ -47,8 +46,21 @@ class Common extends \Codeception\Module
         $this->getModule('PhpBrowser')->seeResponseCodeIs(\Codeception\Util\HttpCode::OK); // 200
 
         # debug输出一条信息
+        //$response = $this->getModule('PhpBrowser')->client->getInternalResponse()->getContent();
         $response =  $this->getModule('PhpBrowser')->grabPageSource();
         $this->debugSection('response', $response);
+
+        $this->getModule('PhpBrowser')->_loadPage('POST', '/index/api/demo', [
+            'name' => 'test',
+            'email' => 'test@163.com',
+        ]);
+
+        $userData = $this->getModule('PhpBrowser')->_request('POST', '/index/api/demo', [
+            'name' => 'test',
+            'email' => 'test@163.com',
+        ]);
+        $data = json_decode($userData, true);
+        $this->debugSection('data', $data);
     }
 
     public function seeModuleREST()
@@ -58,9 +70,10 @@ class Common extends \Codeception\Module
         # 发送请求api地址： http://www.thinkapp.com/index/api/demo
         # 请求参数： {"name":"test","email":"test@163.com"}
         # 响应结果： {"code":1,"msg":"success","data":[]}
-        $this->getModule('REST')->haveHttpHeader('accept', 'application/json');
+        // $this->getModule('REST')->haveHttpHeader('accept', 'application/json');
         // $I->haveHttpHeader('Content-Type', 'application/x-www-form-urlencoded'); // 普通表单形式发送
-        $this->getModule('REST')->haveHttpHeader('content-type', 'application/json'); // 发送JSON形式数据
+        $this->getModule('REST')->haveHttpHeader('content-type', 'application/json'); // 发送JSON形式数据， 例如： {"name":"test","email":"test@163.com"}
+        // 如果不手动设置content-type值， 默认content-type的值为： application/x-www-form-urlencoded
         $this->getModule('REST')->sendPOST('/index/api/demo', [
             'name' => 'test',
             'email' => 'test@163.com',
