@@ -18,3 +18,5 @@ extensions:
         - Codeception\Extension\RunFailed
         - Codeception\Extension\SimpleReporter
         - Codeception\Extension\DotReporter
+params:
+    - config/params.php

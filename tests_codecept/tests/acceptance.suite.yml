@@ -8,6 +8,6 @@ actor: AcceptanceTester
 modules:
     enabled:
         - PhpBrowser:
-            url: http://www.thinkapp.com
+            url: '%BASE_URL%'        # BASE_URL : http://www.thinkapp.com 定义在 config/params.php
         - \Helper\Acceptance
     step_decorators: ~        

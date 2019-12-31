@@ -3,6 +3,6 @@ modules:
     enabled:
         - \Helper\Api
         - REST:
-              url: http://www.thinkapp.com
+              url: '%BASE_URL%'        # BASE_URL : http://www.thinkapp.com 定义在 config/params.php
               depends: PhpBrowser
               part: Json

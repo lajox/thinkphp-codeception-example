@@ -66,6 +66,9 @@ class SomeTest extends \Codeception\Test\Unit
             'email' => 'test@163.com',
         ]);
         $this->getModule('PhpBrowser')->seeResponseCodeIs(\Codeception\Util\HttpCode::OK); // 200
+        # debug输出一条信息
+        $response =  $this->getModule('PhpBrowser')->grabPageSource();
+        $this->debugSection('response', $response);
     }
 
     protected function _testREST()

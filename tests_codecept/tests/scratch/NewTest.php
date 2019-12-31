@@ -20,7 +20,15 @@ class NewTest extends \Codeception\Test\Unit
     // tests
     public function testSomeFeature()
     {
-
+        $this->getModule('PhpBrowser')->_reconfigure(array('url' => 'http://www.lancms.com'));
+        $this->getModule('PhpBrowser')->sendAjaxRequest('POST', '/api/test/demo', [
+            'name' => 'test',
+            'email' => 'test@163.com',
+        ]);
+        $this->getModule('PhpBrowser')->seeResponseCodeIs(\Codeception\Util\HttpCode::OK); // 200
+        # debug输出一条信息
+        $response =  $this->getModule('PhpBrowser')->grabPageSource();
+        $this->debugSection('response', $response);
     }
 
     /**
