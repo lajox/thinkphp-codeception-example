@@ -19,3 +19,5 @@ modules:
               part: Json
         - Filesystem
     step_decorators: ~
+groups:
+  othergroup: tests/_data/othergroup.txt

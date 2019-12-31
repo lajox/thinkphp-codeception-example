@@ -9,6 +9,6 @@ modules:
       capabilities:
         browserName: 'chrome'
         platform: ANY
-#        chromeOptions:  # chromeOptions or 'goog:chromeOptions'
+#        'goog:chromeOptions':  # 'goog:chromeOptions' or chromeOptions
 #          args:
 #            - '--disable-web-security'

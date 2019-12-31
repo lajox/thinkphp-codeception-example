@@ -1,0 +1,3 @@
+tests/scratch/UserCest.php
+tests/scratch/UserTest.php
+tests/scratch/MockTest.php:testSomeFeature

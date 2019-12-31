@@ -10,3 +10,6 @@ modules:
     step_decorators: ~
 paths:
     envs: tests/_envs
+groups:
+    onegroup: [tests/mixture/MixUserCest.php, tests/mixture/MixOtherCest.php:testSomeGroupFuncOne]
+    somegroup: tests/_data/somegroup.txt

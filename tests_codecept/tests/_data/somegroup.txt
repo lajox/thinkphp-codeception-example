@@ -1,0 +1,3 @@
+tests/mixture/MixUserCest.php
+tests/mixture/MixOtherCest.php:testSomeGroupFuncOne
+tests/mixture/MixOtherCest.php:testSomeGroupFuncTwo
