@@ -12,6 +12,7 @@ ThinkPHP5.1基础框架集成Codeception单元测试：
 > ThinkPHP5的运行环境要求PHP5.6以上。
 
 * Github项目地址： [https://github.com/lajox/thinkphp-codeception-example](https://github.com/lajox/thinkphp-codeception-example)
+* codeception参考教程： [https://www.cnblogs.com/phplog](https://www.cnblogs.com/phplog)
 * bug/建议发送至邮箱：`lajox@19www.com`
 * 联系作者QQ：`517544292`
 

@@ -72,12 +72,12 @@ class MockTest extends \Codeception\Test\Unit
     {
         # 更多详细文档： http://codeception.com/docs/reference/Stub
 
-        $user = \Codeception\Stub::makeEmpty('Book', ['getName' => 'john']);
+        $user = \Codeception\Stub::makeEmpty('\Book', ['getName' => 'john']);
         $name = $user->getName(); // 'john'
         $this->assertEquals('john', $name);
         $this->debugSection('Book::getName', $name);
 
-        $stub = \Codeception\Util\Stub::makeEmpty('Book', [
+        $stub = \Codeception\Util\Stub::makeEmpty('\Book', [
             'myMethod' => \Codeception\Util\Stub::exactly(2, function () { return 'returnValue'; })
         ]);
         $stub->myMethod();

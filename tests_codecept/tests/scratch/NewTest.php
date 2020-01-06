@@ -29,6 +29,18 @@ class NewTest extends \Codeception\Test\Unit
         # debug输出一条信息
         $response =  $this->getModule('PhpBrowser')->grabPageSource();
         $this->debugSection('response', $response);
+
+        $this->getModule('REST')->_reconfigure(array('url' => 'http://www.lancms.com'));
+        $this->getModule('REST')->sendPOST('POST', '/api/test/demo', [
+            'name' => 'test',
+            'email' => 'test@163.com',
+        ]);
+        # debug输出一条信息
+        $response =  $this->getModule('REST')->grabResponse();
+        $this->debugSection('response', $response);
+        # debug输出一条信息
+        $info = $this->getModule('REST')->grabDataFromResponseByJsonPath('$..data.email');
+        $this->debugSection('info', $info);
     }
 
     /**

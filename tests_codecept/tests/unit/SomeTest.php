@@ -56,9 +56,8 @@ class SomeTest extends \Codeception\Test\Unit
     protected function _testPhpBrowser()
     {
         // 可以查看文档： https://codeception.com/docs/modules/PhpBrowser
-        $this->getModule('PhpBrowser')->haveHttpHeader('accept', 'application/json');
-        // $this->getModule('PhpBrowser')->haveHttpHeader('Content-Type', 'application/x-www-form-urlencoded'); // 普通表单形式发送
-        $this->getModule('PhpBrowser')->haveHttpHeader('content-type', 'application/json'); // 发送JSON形式数据
+        # 注意： 经测试， “PhpBrowser”模块 暂时不支持POST发送JSON格式的数据, 如果要发送JSON数据请用 “REST”模块！！！
+
         // AJAX请求
         //$this->getModule('PhpBrowser')->sendAjaxPostRequest('/index/api/demo', ['name' => 'test', 'email' => 'test@163.com']);
         $this->getModule('PhpBrowser')->sendAjaxRequest('POST', '/index/api/demo', [
@@ -68,7 +67,7 @@ class SomeTest extends \Codeception\Test\Unit
         $this->getModule('PhpBrowser')->seeResponseCodeIs(\Codeception\Util\HttpCode::OK); // 200
         # debug输出一条信息
         $response =  $this->getModule('PhpBrowser')->grabPageSource();
-        $this->debugSection('response', $response);
+        $this->debugSection('response', $response); // 输出： {"code":1,"msg":"success","data":{"name":"test","email":"test@163.com"}}
     }
 
     protected function _testREST()
@@ -97,6 +96,12 @@ class SomeTest extends \Codeception\Test\Unit
             'msg' => 'string',
             'data' => 'string|array|null',
         ]);
+        # debug输出一条信息
+        $response =  $this->getModule('REST')->grabResponse();
+        $this->debugSection('response', $response); // 输出： [response] {"code":1,"msg":"success","data":{"name":"test","email":"test@163.com"}}
+        # debug输出一条信息
+        $info = $this->getModule('REST')->grabDataFromResponseByJsonPath('$..data.email');
+        $this->debugSection('info', $info); // 输出： [info] ["test@163.com"]
     }
 
     /**

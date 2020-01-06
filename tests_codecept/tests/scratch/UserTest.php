@@ -62,7 +62,7 @@ class UserTest extends \Codeception\Test\Unit
 
     /**
      * 测试场景
-     * @var \UnitTester $this->tester
+     * @var \ScratchTester $this->tester
      */
     protected function _testCept()
     {

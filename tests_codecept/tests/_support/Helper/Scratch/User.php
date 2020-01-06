@@ -40,9 +40,8 @@ class User extends \Codeception\Module
     public function seeUserModulePhpBrowser()
     {
         // 可以查看文档： https://codeception.com/docs/modules/PhpBrowser
-        $this->getModule('PhpBrowser')->haveHttpHeader('accept', 'application/json');
-        // $this->getModule('PhpBrowser')->haveHttpHeader('Content-Type', 'application/x-www-form-urlencoded'); // 普通表单形式发送
-        $this->getModule('PhpBrowser')->haveHttpHeader('content-type', 'application/json'); // 发送JSON形式数据
+        # 注意： 经测试， “PhpBrowser”模块 暂时不支持POST发送JSON格式的数据, 如果要发送JSON数据请用 “REST”模块！！！
+
         // AJAX请求
         //$this->getModule('PhpBrowser')->sendAjaxPostRequest('/index/api/demo', ['name' => 'test', 'email' => 'test@163.com']);
         $this->getModule('PhpBrowser')->sendAjaxRequest('POST', '/index/api/demo', [
@@ -85,6 +84,10 @@ class User extends \Codeception\Module
         ]);
 
         $response = $this->getModule('REST')->grabResponse();
+        $this->debugSection('response', $response); // 输出： [response] {"code":1,"msg":"success","data":{"name":"test","email":"test@163.com"}}
         $this->assertContains('success', $response);
+        # debug输出一条信息
+        $info = $this->getModule('REST')->grabDataFromResponseByJsonPath('$..data.email');
+        $this->debugSection('info', $info); // 输出： [info] ["test@163.com"]
     }
 }
