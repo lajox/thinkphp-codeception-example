@@ -79,8 +79,21 @@ class ControllerTest extends \Codeception\Test\Unit
         # debug输出一条信息
         $info = $this->getModule('REST')->grabDataFromResponseByJsonPath('$.code');
         \debugSection('info', $info); // 输出： [info] [1]
+
+        # 断言
         $this->tester->assertEquals(1, $info[0]); //断言
         $this->assertEquals(1, $info[0]); //断言
+        \Codeception\Module\Asserts::assertEquals(1, $info[0]);  //调用断言模块断言变量
+        $this->getModule('Asserts')->assertEquals(1, $info[0]);  //调用断言模块断言变量
+        \PHPUnit\Framework\Assert::assertEquals(1, $info[0]);   //直接调用PHPUnit断言方法
+
+        $jsonStr = $response;
+        $info = (new \Codeception\Util\JsonArray($jsonStr))->filterByJsonPath('$.code'); // 注意： filterByJsonPath返回的是一个数组
+        # debug输出一条信息
+        \debugSection('info', $info); // 就会输出： [info] [1]
+        $length = (new \Codeception\Util\JsonArray($jsonStr))->filterByXPath('//code')->length;
+        # debug输出一条信息
+        \debugSection('length', $length); // 就会输出： [length] 1
     }
 
     protected function _testMemberProcess() {
@@ -95,5 +108,10 @@ class ControllerTest extends \Codeception\Test\Unit
         ]);
         $response =  $this->getModule('REST')->grabResponse();
         \debugSection('response', $response); // 输出： [response] {"code":1,"msg":"success","data":[{"id":1,"username":"lajox","email":"blueno@yeah.net","status":1}],"count":1}
+        $jsonStr = $response;
+        $info = (new \Codeception\Util\JsonArray($jsonStr))->filterByJsonPath('$.data[0]'); // 注意： filterByJsonPath返回的是一个数组
+        # debug输出一条信息
+        \debugSection('info', $info); // 就会输出： [info] [{"id":1,"username":"lajox","email":"blueno@yeah.net","status":1}]
+        \debugSection('info2', $info[0]); // 就会输出： [info2] {"id":1,"username":"lajox","email":"blueno@yeah.net","status":1}
     }
 }
