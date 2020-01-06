@@ -1,7 +1,18 @@
-<?php 
+<?php
+/**
+ * 注释
+ * @var \MixtureTester  $I  ( $I 将返回一个 \MixtureTester 对象实例 )
+ * @var \Codeception\Scenario  $scenario  ( $scenario 将返回一个 \Codeception\Scenario 对象实例 )
+ */
+
 $I = new MixtureTester($scenario);
 //$I->wantTo('perform actions and see result');
 
+/**
+ * 注释
+ * @param \MixtureTester  $I  ( $I 将返回一个 \MixtureTester 对象实例 )
+ * @param \Codeception\Scenario  $scenario  ( $scenario 将返回一个 \Codeception\Scenario 对象实例 )
+ */
 function _debugScenario($I, $scenario)
 {
     // retrieve current environment
